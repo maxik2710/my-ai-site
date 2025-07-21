@@ -1,0 +1,14 @@
+# render.yaml
+# This file tells Render how to deploy your app
+
+services: # Define all services in this app
+  - type: web # This is a web service (can receive HTTP requests)
+    name: my-fullstack-app # Name of your service in Render dashboard
+    env: node # Tells Render this is a Node.js environment
+    rootDir: fullstack # Root directory of your backend (where package.json lives)
+    
+    buildCommand: yarn install
+    # Run `yarn install` to install dependencies (inside backend folder)
+
+    startCommand: yarn start
+    # Run `yarn start` to start your server (inside backend folder)

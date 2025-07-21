@@ -1,0 +1,1 @@
+// Dummy Handlers für Login, Kontaktformular und Chatbot

@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maxim Kechter – Sales Professional</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Maxim Kechter</h1>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Personal statement</h2>
+      <p>"An investment in knowledge pays the best interest".</p>
+    </section>
+
+    <section id="services">
+      <h2>Services</h2>
+
+      <h3>For Companies</h3>
+      <ul>
+        <li>Building & scaling international sales channels</li>
+        <li>Sales strategy for technical products</li>
+        <li>Bid management & contract negotiation (CapEx)</li>
+        <li>Customer acquisition in EMEA / CEE / Asia</li>
+      </ul>
+
+      <h3>Charity service for underprivileged people</h3>
+      <ul>
+        <li>Career orientation for young adults and career changers</li>
+        <li>Support with CVs, cover letters, and LinkedIn profiles</li>
+        <li>Hands-on help with digital tools and AI basics</li>
+        <li>1:1 mentoring and advice for difficult life situations</li>
+      </ul>
+    </section>
+
+    <section id="core-competencies">
+      <h2>Core Competencies</h2>
+      <ul>
+        <li>Financial acumen and business operation</li>
+        <li>Leadership development and team building</li>
+        <li>Risk management and decision-making</li>
+        <li>Effective communication and negotiation</li>
+      </ul>
+    </section>
+
+    <section id="certificates">
+      <h2>Certificates</h2>
+      <ul>
+        <li>First Cambridge Certificate</li>
+        <li>Sales Strategy & Negotiation – Online Course</li>
+        <li>Digital Marketing for B2B – Online Course</li>
+        <li>Technical Product Management – Tech University</li>
+      </ul>
+    </section>
+
+    <section id="social-media">
+      <h2>Social Media</h2>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/maxim-kechter" target="_blank" rel="noopener noreferrer">
+            LinkedIn Profile
+          </a>
+        </li>
+      </ul>
+    </section>
+    
+    <section id="contact">
+      <h2>Contact</h2>
+      <form id="contactForm" onsubmit="return handleSubmit(event);">
+        <input type="hidden" name="_captcha" value="false" />
+        
+        <label for="name">Name:</label>
+        <input type="text" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea name="message" rows="5" required></textarea>
+
+        <label>
+          <input type="checkbox" id="gdprConsent" required />
+          <a href="https://maxik-art.github.io/Maxim.V2/privacy_policy.pdf" target="_blank">privacy policy</a>
+        </label>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="thankYouPopup">
+        <h2>Thank you!</h2>
+        <p>Your message has been sent successfully. I will get back to you as soon as possible.</p>
+        <button onclick="closePopup()">Close</button>
+      </div>
+    </section>
+  </main>
+
+<script>
+  function validateForm() {
+    const consent = document.getElementById('gdprConsent');
+    if (!consent.checked) {
+      alert('Please accept the privacy policy before submitting.');
+      return false;
+    }
+    return true;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (!validateForm()) return;
+
+    const form = document.getElementById('contactForm');
+    const formData = new FormData(form);
+
+    fetch("https://formsubmit.co/ajax/maxim.s.kechter@gmail.com", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        form.reset();
+        document.getElementById('thankYouPopup').style.display = 'block';
+      } else {
+        alert("There was a problem submitting the form.");
+      }
+    })
+    .catch(error => {
+      alert("Error occurred. Please try again later.");
+    });
+
+    return false;
+  }
+
+  function closePopup() {
+    document.getElementById('thankYouPopup').style.display = 'none';
+  }
+</script>
+
+<script src="form_debug.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maxim Kechter – Sales Professional</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fb;
+    }
+    header {
+      background-color: #111827;
+      padding: 20px;
+      color: white;
+    }
+    main {
+      padding: 40px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #111827;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Maxim Kechter</h1>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Personal statement</h2>
+      <p>"An investment in knowledge pays the best interest".</p>
+      </section>
+
+   <section id="services">
+  <h2>Services</h2>
+
+  <h3>For Companies</h3>
+  <ul>
+    <li>Building & scaling international sales channels</li>
+    <li>Sales strategy for technical products</li>
+    <li>Bid management & contract negotiation (CapEx)</li>
+    <li>Customer acquisition in EMEA / CEE / Asia</li>
+  </ul>
+
+  <h3>Charity service for underprivileged people</h3>
+  <ul>
+    <li>Career orientation for young adults and career changers</li>
+    <li>Support with CVs, cover letters, and LinkedIn profiles</li>
+    <li>Hands-on help with digital tools and AI basics</li>
+    <li>1:1 mentoring and advice for difficult life situations</li>
+  </ul>
+</section>
+
+    <!-- Core Competencies Section -->
+<section id="core-competencies">
+  <h2>Core Competencies</h2>
+  <ul>
+    <li>Financial acumen and business operation</li>
+    <li>Leadership development and team building</li>
+    <li>Risk management and decision-making</li>
+    <li>Effective communication and negotiation</li>
+  </ul>
+</section>
+
+<!-- Certificates Section -->
+<section id="certificates">
+  <h2>Certificates</h2>
+  <ul>
+    <li>First Cambridge Certificate</li>
+    <li>Sales Strategy & Negotiation – Online Course</li>
+    <li>Digital Marketing for B2B – Online Course</li>
+    <li>Technical Product Management – Tech University</li>
+  </ul>
+</section>
+
+<!-- Social Media Section -->
+<section id="social-media">
+  <h2>Social Media</h2>
+  <ul>
+    <li>
+      <a href="https://www.linkedin.com/in/maxim-kechter" target="_blank" rel="noopener noreferrer">
+        LinkedIn Profile
+      </a>
+    </li>
+  </ul>
+</section>
+    
+    <section id="contact">
+      <h2>Contact</h2>
+      <form id="contactForm" onsubmit="return handleSubmit(event);">
+        <input type="hidden" name="_captcha" value="false" />
+        
+        <label for="name">Name:</label>
+        <input type="text" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea name="message" rows="5" required></textarea>
+
+        <label>
+          <input type="checkbox" id="gdprConsent" required />
+        <a href="https://maxik-art.github.io/Maxim.V2/privacy_policy.pdf" target="_blank">privacy policy</a>
+        </label>
+
+        <button type="submit">Send Message</button>
+      </form>
+<div id="thankYouPopup" style="display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%);
+background:#fff; padding:30px; border-radius:8px; box-shadow:0 0 20px rgba(0,0,0,0.2); z-index:1000; text-align:center;">
+  <h2>Thank you!</h2>
+  <p>Your message has been sent successfully. I will get back to you as soon as possible.</p>
+  <button onclick="closePopup()">Close</button>
+</div>
+
+    </section>
+  </main>
+
+  
+<script>
+  function validateForm() {
+    const consent = document.getElementById('gdprConsent');
+    if (!consent.checked) {
+      alert('Please accept the privacy policy before submitting.');
+      return false;
+    }
+    return true;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (!validateForm()) return;
+
+    const form = document.getElementById('contactForm');
+    const formData = new FormData(form);
+
+    fetch("https://formsubmit.co/ajax/maxim.s.kechter@gmail.com", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        form.reset();
+        document.getElementById('thankYouPopup').style.display = 'block';
+      } else {
+        alert("There was a problem submitting the form.");
+      }
+    })
+    .catch(error => {
+      alert("Error occurred. Please try again later.");
+    });
+
+    return false;
+  }
+
+  function closePopup() {
+    document.getElementById('thankYouPopup').style.display = 'none';
+  }
+</script>
+
+
+  <script src="form_debug.js"></script>
+</body>
+</html>

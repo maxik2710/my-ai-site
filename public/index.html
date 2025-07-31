@@ -1,0 +1,202 @@
+<!DOCTYPE html> <!-- HTML5-Dokumenttyp -->
+<html lang="en"> <!-- Beginn der HTML-Seite, Sprache: Englisch -->
+
+<head>
+  <meta charset="UTF-8" /> <!-- Zeichencodierung -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Responsives Layout für Mobilgeräte -->
+  <title>Maxim Kechter – Sales Professional</title> <!-- Titel im Browser-Tab -->
+  <link rel="stylesheet" href="style.css"> <!-- CSS-Datei einbinden -->
+</head>
+
+<body>
+
+  <header>
+  <a href="index.html">
+    <img src="maxik.png" alt="Maxim Kechter Logo" style="height: 60px;" />
+  </a>
+</header>
+
+  <main>
+    <section id="intro"> <!-- Einleitungsbereich -->
+      <h2>Personal statement</h2>
+      <p>Helping one person might not change the world, but it could mean the world to that one person</p>
+    </section>
+
+    <section id="services"> <!-- Liste mit Pro-Bono-Diensten -->
+      <h2>Pro Bono Services</h2>
+      <ul>
+        <!-- Jeder Link öffnet ein spezifisches Pop-up -->
+        <li><a href="#" onclick="event.preventDefault(); openPopup('popup1')">Career orientation</a></li>
+        <li><a href="#" onclick="event.preventDefault(); openPopup('popup2')">Support with CVs</a></li>
+        <li><a href="#" onclick="event.preventDefault(); openPopup('popup3')">Digital tools</a></li>
+        <li><a href="#" onclick="event.preventDefault(); openPopup('popup4')">1:1 mentoring</a></li>
+        <li><a href="#" onclick="event.preventDefault(); openPopup('popup5')">1:1 ChatGPT</a></li>
+      </ul>
+
+      <!-- Pop-up 1 mit Textarea -->
+      <div class="popup" id="popup1">
+        <label>Information about career orientation:</label>
+        <textarea id="popupText1" rows="6" style="width: 100%; margin-top: 10px;">
+Copy and paste here the info about company
+        </textarea>
+        <br> <!-- Umbruch für Buttons -->
+        <button onclick="copyText('popupText1')">Copy Text</button>
+        <button class="closePopupBtn" data-popup="popup1">Close</button>
+      </div>
+
+      <!-- Weitere Pop-ups (Platzhalter) -->
+      <div class="popup" id="popup2">
+        <label>Support with CVs</label>
+        <p>Place Holder</p>
+        <button class="closePopupBtn" data-popup="popup2">Close</button>
+      </div>
+
+      <div class="popup" id="popup3">
+        <label>Digital tools</label>
+        <p>Place Holder</p>
+        <button class="closePopupBtn" data-popup="popup3">Close</button>
+      </div>
+
+      <div class="popup" id="popup4">
+        <label>1:1 mentoring</label>
+        <p>Place Holder</p>
+        <button class="closePopupBtn" data-popup="popup4">Close</button>
+      </div>
+
+            <!-- Pop-up 5 mit Textarea -->
+      <div class="popup" id="popup5">
+        <label>ChatGPT</label>
+        <textarea id="popupText1" rows="6" style="width: 100%; margin-top: 10px;">
+Write your request here
+        </textarea>
+        <br> <!-- Umbruch für Buttons -->
+        <button onclick="copyText('popupText5')">Copy Text</button>
+        <button class="closePopupBtn" data-popup="popup5">Close</button>
+      </div>
+
+    </section>
+
+    <!-- Social-Media-Bereich -->
+    <section id="social-media">
+      <h2>Social Media</h2>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/maxim-kechter" target="_blank" rel="noopener noreferrer">
+            LinkedIn Profile
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Kontaktformular -->
+<section id="contact">
+  <h2>Contact</h2>
+
+   <form action="https://formsubmit.co/maxim.s.kechter@gmail.com" method="POST">
+    <!-- Spam-Schutz -->
+    <input type="text" name="_honey" style="display:none">
+
+    <!-- CAPTCHA deaktivieren -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Weiterleitung nach erfolgreicher Sendung -->
+   <!-- <input type="hidden" name="_next" value="https://deine-website.de/danke.html">-->
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">E-Mail:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Nachricht:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Absenden</button>
+
+    <!-- Eingebettete Datenschutzerklärung -->
+    <div style="max-height: 150px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+      <h3>Datenschutzerklärung</h3>
+      <p>
+        Die übermittelten Daten (Name, E-Mail, Nachricht) werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.
+        Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
+        Eine Weitergabe an Dritte erfolgt nicht.
+      </p>
+      <p>
+        Mit dem Absenden dieses Formulars erklären Sie sich mit der Verarbeitung Ihrer Daten einverstanden.
+      </p>
+    </div>
+
+    <div>
+      <input type="checkbox" id="gdprConsent" required />
+      <label for="gdprConsent">
+        Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.
+      </label>
+    </div>
+
+<!-- HTML5-Dokumenttyp -->
+     
+  <!--   <button type="submit">Send Message</button>-->
+  </form>
+</section>
+
+<!-- Danke-Nachricht (versteckt) -->
+  <div id="thankYouPopup" style="display:none; border: 1px solid #ccc; padding: 20px; margin-top: 20px; background: #e6ffe6;">
+    <h2>Thank you!</h2>
+    <p>Your message has been sent successfully.</p>
+    <button id="closeButton">Close</button>
+  </div>
+</section>
+
+  </main>
+
+  <!-- JavaScript: Pop-up öffnen und schließen -->
+  <script>
+    function openPopup(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function copyText(textareaId) {
+      var textarea = document.getElementById(textareaId);
+      textarea.select();
+      textarea.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      alert("Text copied to clipboard!");
+    }
+    
+  function handleSubmit(event) {
+    event.preventDefault(); // Verhindert Neuladen
+
+    // Formular ausblenden, Danke anzeigen
+    document.getElementById("contactForm").style.display = "none";
+    document.getElementById("thankYouPopup").style.display = "block";
+  }
+
+  function closePopup() {
+    // Danke-Popup ausblenden, Formular zurücksetzen
+    document.getElementById("thankYouPopup").style.display = "none";
+    document.getElementById("contactForm").reset();
+    document.getElementById("contactForm").style.display = "block";
+  }
+
+  // Wichtig: closeButton mit Funktion verbinden
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("closeButton").addEventListener("click", closePopup);
+  });
+  
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Maxim Kechter All rights reserved.</p>
+  </footer>
+
+  <!-- Weitere Skripte -->
+  <script src="form_debug.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
